@@ -524,59 +524,118 @@ img, video {
   height: auto;
 }
 
-/* تنظیمات ریسپانسیو و استاندارد برای موبایل */
+/* ========================================================
+   استایل‌های اختصاصی برای ریسپانسیو و رفع به هم ریختگی موبایل
+   ======================================================== */
+
 * {
   box-sizing: border-box;
 }
 
-body {
-  overflow-x: hidden; /* جلوگیری از اسکرول افقی اضافه */
-  margin: 0;
-  padding: 0;
+html, body {
+  overflow-x: hidden !important; /* حذف اسکرول افقی اضافه */
+  width: 100%;
 }
 
-/* کارت‌ها و کانتینر اصلی در موبایل عرض کامل و تمیز بگیرند */
-.container, main, section, .card {
-  max-width: 100% !important;
-  box-sizing: border-box !important;
+.container {
+  width: 100% !important;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 12px;
 }
 
-/* تنظیم هدر برای صفحات موبایل (کمتر از 768 پیکسل) */
+/* ================= تنظیمات مخصوص هدر در موبایل ================= */
 @media (max-width: 768px) {
-  /* اگر هدر شما تگ header یا کلاسی مثل header / navbar دارد */
-  header, .header, .navbar, .top-bar {
+  .navbar {
     display: flex !important;
-    flex-wrap: wrap !important; /* اجازه بده در صورت کمبود جا برود خط بعد */
+    flex-wrap: wrap !important;
     justify-content: space-between !important;
     align-items: center !important;
-    gap: 10px !important;
-    padding: 12px 16px !important;
-    width: 100% !important;
+    padding: 10px 14px !important;
+    gap: 8px !important;
   }
 
-  /* اندازه لوگو در موبایل */
-  .logo, header h1, header h2, .brand {
-    font-size: 14px !important;
-    line-height: 1.3 !important;
-    text-align: right !important;
+  /* ۱. عنوان و لوگوی سایت */
+  .navbar .brand {
+    font-size: 1rem !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    order: 1;
   }
 
-  /* ساعت و دکمه‌ها در موبایل */
-  .clock, .timer {
-    font-size: 13px !important;
+  /* ۲. دکمه‌ها و ساعت به ردیف دوم یا مرتب‌شده منتقل می‌شوند */
+  .navbar .nav-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    order: 2;
+  }
+
+  /* اندازه ساعت در موبایل */
+  .clock-badge {
+    font-size: 0.8rem !important;
     padding: 4px 8px !important;
   }
 
-  /* کارت خوش‌آمدید و کارت‌های اصلی */
-  .welcome-card, .card, [class*="card"] {
-    width: 92% !important;
-    margin: 12px auto !important;
-    padding: 16px !important;
-    border-radius: 16px !important;
+  /* دکمه دسته‌بندی‌ها و دکمه راهنما */
+  .dropdown-btn, #openModal {
+    font-size: 0.78rem !important;
+    padding: 5px 8px !important;
+    white-space: nowrap !important;
   }
-}
 
-  h1 {
-    font-size: 1.8rem;
+  /* منوی آبشاری دسته‌بندی در موبایل به چپ و راست صفحه گیر نکند */
+  .dropdown-menu {
+    position: absolute !important;
+    right: auto !important;
+    left: 0 !important;
+    min-width: 200px !important;
+    z-index: 9999 !important;
+  }
+
+  /* اسلایدر و بنر خوش‌آمدید */
+  .welcome-card {
+    padding: 14px !important;
+    margin: 10px auto !important;
+    border-radius: 14px !important;
+  }
+
+  .swiper-slide {
+    padding: 20px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  .swiper-slide h2 {
+    font-size: 1.15rem !important;
+  }
+
+  .swiper-slide p {
+    font-size: 0.85rem !important;
+  }
+
+  /* ۳. گرید کارت‌ها در موبایل تک‌ستونه شود */
+  .grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+  }
+
+  .tool-box {
+    width: 100% !important;
+    padding: 14px !important;
+    border-radius: 14px !important;
+  }
+
+  /* کیبورد ماشین حساب پیشرفته داخل مودال */
+  .keypad-grid {
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 4px !important;
+  }
+
+  .keypad-grid .key {
+    padding: 10px 4px !important;
+    font-size: 0.85rem !important;
   }
 }

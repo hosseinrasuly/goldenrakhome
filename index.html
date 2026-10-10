@@ -16,6 +16,57 @@
   
   <!-- استایل اختصاصی -->
  <link rel="stylesheet" href="style.css?v=2">
+<style>
+  @media (max-width: 768px) {
+    html, body {
+      overflow-x: hidden !important;
+      width: 100% !important;
+    }
+    .navbar {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      padding: 10px !important;
+      gap: 10px !important;
+    }
+    .navbar .brand {
+      justify-content: center !important;
+      font-size: 1.1rem !important;
+    }
+    .navbar .nav-actions {
+      justify-content: center !important;
+      width: 100% !important;
+      gap: 6px !important;
+    }
+    .clock-badge {
+      font-size: 0.8rem !important;
+      padding: 4px 6px !important;
+    }
+    .dropdown-btn, #openModal {
+      font-size: 0.78rem !important;
+      padding: 5px 8px !important;
+    }
+    .grid {
+      grid-template-columns: 1fr !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    .tool-box {
+      width: 100% !important;
+    }
+    /* شکستن ورودی‌های معلم مبناها */
+    #base-section div[style*="grid-template-columns"] {
+      grid-template-columns: 1fr !important;
+    }
+    #base-section div[style*="display:flex"],
+    .tool-box div[style*="display:flex"] {
+      flex-direction: column !important;
+    }
+    #base-section button,
+    .tool-box button {
+      width: 100% !important;
+    }
+  }
+</style>
 
 </head>
 <body>

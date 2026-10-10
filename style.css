@@ -518,3 +518,34 @@ button.key:active {
   cursor: pointer;
   z-index: 90;
 }
+/* ۱. جلوگیری از بیرون زدن عکس‌ها و ویدیوها */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ۲. کادربندی استاندارد */
+* {
+  box-sizing: border-box;
+}
+
+/* ۳. قوانین مخصوص موبایل و تبلت (صفحه‌های کمتر از 768 پیکسل) */
+@media (max-width: 768px) {
+  /* اگر از فلکس‌باکس استفاده کردی، در موبایل ستونی و زیر هم چیده شوند */
+  .container, .row, .grid, main, section {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    flex-direction: column !important;
+  }
+
+  /* تنظیم اندازه فونت برای موبایل */
+  body {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+}

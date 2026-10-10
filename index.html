@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Rakham | Studio</title>
+
+  <!-- فونت و آیکون‌ها -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  
+  <!-- استایل اختصاصی -->
+  <link rel="stylesheet" href="thems/style.css">
+</head>
+<body>
+
+  <!-- ۱. لودینگ با رفع باگ گیر کردن -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>در حال بارگذاری کلیه امکانات...</p>
+  </div>
+
+  <!-- هدر و منو -->
+  <header class="navbar">
+    <div class="brand"><i class="fa-solid fa-bolt-lightning" style="color: #f59e0b;"></i> Golden Rakam | Studio</div>
+    <div class="nav-actions">
+      <!-- ۲. ساعت دیجیتال -->
+      <div id="clock" class="clock-badge">00:00:00</div>
+
+      <!-- ۳. منوی آبشاری Dropdown -->
+      <div class="dropdown">
+        <button class="dropdown-btn" id="dropBtn">دسته‌بندی‌ها <i class="fa-solid fa-chevron-down"></i></button>
+        <ul class="dropdown-menu" id="dropMenu">
+          <li><a href="#base-section">معلم مبناها (Base Teacher)</a></li>
+          <li><a href="#calc-section">ماشین‌حساب تشریحی</a></li>
+          <li><a href="#crypto-section">رمزنگاری و ابجد</a></li>
+          <li><a href="#text-section">واژه‌نامه و متن</a></li>
+          <li><a href="#game-section">بازی و فال</a></li>
+        </ul>
+      </div>
+      <button class="btn" id="openModal"><i class="fa-solid fa-circle-question"></i> راهنما</button>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- ۴. بنر خوش‌آمدگویی پویا -->
+    <div class="welcome-card" id="welcomeCard" data-aos="fade-down">
+      <div>
+        <h3 id="welcomeTitle">خوش آمدید!</h3>
+        <p id="welcomeDesc" style="font-size: 0.9rem; margin-top: 4px;"></p>
+      </div>
+      <button class="close-btn" onclick="document.getElementById('welcomeCard').style.display='none'">&times;</button>
+    </div>
+
+    <!-- ۵. اسلایدر -->
+    <section data-aos="fade-up">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide slide-1">
+            <h2>محاسبات پیشرفته و تشریحی</h2>
+            <p>حل مرحله‌به‌مرحله عبارات ریاضی، معلم مبناها و حساب ابجد</p>
+          </div>
+          <div class="swiper-slide slide-2">
+            <h2>رمزنگاری و Ciphers</h2>
+            <p>الگوریتم‌های باستانی سزار، ویژنر و Base64</p>
+          </div>
+          <div class="swiper-slide slide-3">
+            <h2>گیمیفیکیشن و حالِ خوش</h2>
+            <p>فال حافظ، دوز دونفره با کانفتی و یادداشت‌های سریع</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- بخش کارت ابزارها -->
+    <div class="grid">
+
+      <!-- ۱. معلم مبناها (Any Base Teacher) - اول و تمام‌عرض -->
+      <div class="tool-box" id="base-section" data-aos="fade-up" style="grid-column: 1 / -1;">
+        <h3><i class="fa-solid fa-chalkboard-user"></i> معلم مبناها (Any-Base Teacher)</h3>
+        <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 8px;">
+          تبدیل هوشمند بین هر مبنای دلخواه (از ۲ تا بی‌نهایت) با دقت نامحدود + تدریس مرحله‌به‌مرحله
+        </p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 10px;">
+          <div>
+            <label style="font-size: 0.8rem; color: #94a3b8; display:block; margin-bottom: 4px;">عدد ورودی:</label>
+            <input type="text" id="baseInput" placeholder="مثال: 255 یا 1011.1 یا FF یا [59][12]" autocomplete="off" style="margin-bottom: 0;">
+          </div>
+          <div>
+            <label style="font-size: 0.8rem; color: #94a3b8; display:block; margin-bottom: 4px;">مبنای مبدأ (From):</label>
+            <input type="number" id="fromBase" min="2" value="10" placeholder="مثلاً: 10 یا 16 یا 60" style="margin-bottom: 0;">
+          </div>
+          <div>
+            <label style="font-size: 0.8rem; color: #94a3b8; display:block; margin-bottom: 4px;">مبنای مقصد (To):</label>
+            <input type="number" id="toBase" min="2" value="2" placeholder="مثلاً: 2 یا 8 یا 64" style="margin-bottom: 0;">
+          </div>
+          <div>
+            <label style="font-size: 0.8rem; color: #94a3b8; display:block; margin-bottom: 4px;">دقت اعشار:</label>
+            <input type="number" id="fracPrecision" min="0" max="30" value="10" style="margin-bottom: 0;">
+          </div>
+        </div>
+
+        <div style="display:flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;">
+          <button class="btn btn-accent" id="btnConvertBase" style="flex: 2;"><i class="fa-solid fa-graduation-cap"></i> تبدیل و تدریس</button>
+          <button class="btn" id="btnSwapBase" style="flex: 1;"><i class="fa-solid fa-arrow-right-arrow-left"></i> جابجایی مبناها</button>
+          <button class="btn" id="btnClearBase" style="flex: 1;"><i class="fa-solid fa-trash"></i> پاک‌کردن</button>
+        </div>
+
+        <div class="result-box" style="margin-bottom: 10px;">
+          <span style="color: #94a3b8;">پاسخ نهایی: </span>
+          <code id="baseOutput" style="font-size: 1.15rem; color: #f59e0b; font-weight: bold;">—</code>
+        </div>
+
+        <details class="steps" open style="background: rgba(0,0,0,0.25); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+          <summary style="cursor: pointer; font-weight: bold; color: #38bdf8; outline: none;">
+            📋 تخته‌سیاه معلم (مراحل گام‌به‌گام و فرمول‌ها)
+          </summary>
+          <div id="baseSteps" style="margin-top: 10px; font-family: monospace; font-size: 0.9rem; line-height: 1.8; white-space: pre-wrap; direction: ltr; text-align: left; color: #e2e8f0;">برای شروع، مقادیر را وارد کرده و دکمه «تبدیل و تدریس» را بزنید.</div>
+        </details>
+      </div>
+
+      <!-- ۲. ماشین حساب تشریحی + دکمه محاسبه عمیق‌تر -->
+      <div class="tool-box" id="calc-section" data-aos="fade-up">
+        <h3><i class="fa-solid fa-calculator"></i> ماشین حساب تشریحی</h3>
+        <input type="text" id="calcInput" placeholder="مثال: 12 + 5 * 2 - (8 / 2)" value="12 + 5 * 2 - (8 / 2)">
+        <div style="display:flex; gap: 8px;">
+          <button class="btn" style="flex:1;" onclick="runDetailedCalc()">محاسبه تشریحی</button>
+          <button class="btn btn-accent" style="flex:1;" onclick="openDeepCalcModal()">
+            <i class="fa-solid fa-microchip"></i> محاسبه عمیق‌تر
+          </button>
+        </div>
+        <div class="result-box" id="calcResult">پاسخ نهایی: -</div>
+        <ul class="steps-list" id="calcSteps"></ul>
+      </div>
+
+      <!-- ۳. حساب ابجد (Abjad) -->
+      <div class="tool-box" id="crypto-section" data-aos="fade-up">
+        <h3><i class="fa-solid fa-feather"></i> حساب ابجد کبیر</h3>
+        <input type="text" id="abjadInput" placeholder="متن یا نام را وارد کنید (مثال: علی)">
+        <button class="btn" onclick="calcAbjad()">محاسبه ابجد</button>
+        <div class="result-box" id="abjadResult">مقدار: 0</div>
+      </div>
+
+      <!-- ۴. رمزنگاری سزار و ویژنر (Caesar & Vigenere) -->
+      <div class="tool-box" data-aos="fade-up">
+        <h3><i class="fa-solid fa-user-secret"></i> رمزنگاری سزار و ویژنر</h3>
+        <input type="text" id="cipherText" placeholder="متن مورد نظر (انگلیسی)">
+        <div style="display:flex; gap: 8px;">
+          <input type="text" id="cipherKey" placeholder="کلید (عدد برای سزار / متن برای ویژنر)" value="3">
+          <select id="cipherType" style="width: 140px;">
+            <option value="caesar">سزار (Caesar)</option>
+            <option value="vigenere">ویژنر (Vigenere)</option>
+          </select>
+        </div>
+        <div style="display:flex; gap: 8px;">
+          <button class="btn" style="flex:1;" onclick="processCipher(true)">رمزگذاری</button>
+          <button class="btn btn-accent" style="flex:1;" onclick="processCipher(false)">رمزگشایی</button>
+        </div>
+        <div class="result-box" id="cipherResult">نتیجه رمزنگاری...</div>
+      </div>
+
+      <!-- ۵. رمزنگاری عمومی / Base64 (Encryption) -->
+      <div class="tool-box" data-aos="fade-up">
+        <h3><i class="fa-solid fa-lock"></i> انکریپشن (Base64)</h3>
+        <input type="text" id="encInput" placeholder="متن دلخواه...">
+        <div style="display:flex; gap: 8px;">
+          <button class="btn" style="flex:1;" onclick="encBase64(true)">Encode</button>
+          <button class="btn btn-accent" style="flex:1;" onclick="encBase64(false)">Decode</button>
+        </div>
+        <div class="result-box" id="encResult">نتیجه...</div>
+      </div>
+
+      <!-- ۶. جایگزین متن Farsa (Text Replacer) -->
+      <div class="tool-box" id="text-section" data-aos="fade-up">
+        <h3><i class="fa-solid fa-repeat"></i> تعویض و اصلاح متن (Farsa)</h3>
+        <textarea id="farsaSource" rows="2" placeholder="متن اصلی را بنویسید..."></textarea>
+        <div style="display:flex; gap: 8px;">
+          <input type="text" id="farsaFind" placeholder="کلمه مورد نظر">
+          <input type="text" id="farsaReplace" placeholder="جایگزین با">
+        </div>
+        <button class="btn" onclick="applyFarsa()">اعمال جایگزینی</button>
+        <div class="result-box" id="farsaResult">متن تغییریافته...</div>
+      </div>
+
+      <!-- ۷. واژه‌نامه Oneselect (Search in Dictionary) -->
+      <div class="tool-box" data-aos="fade-up">
+        <h3><i class="fa-solid fa-book"></i> جستجوی تک‌گزینه‌ای در واژه‌نامه</h3>
+        <select id="dictSelect" onchange="lookupDict()">
+          <option value="">یک واژه انتخاب کنید...</option>
+          <option value="algorithm">الگوریتم (Algorithm)</option>
+          <option value="cipher">سایفر (Cipher)</option>
+          <option value="gamification">گیمیفیکیشن (Gamification)</option>
+          <option value="abjad">ابجد (Abjad)</option>
+        </select>
+        <div class="result-box" id="dictResult">معنی واژه پس از انتخاب نمایش داده می‌شود.</div>
+      </div>
+
+      <!-- ۸. فال حافظ آنلاین (Fal) -->
+      <div class="tool-box" id="game-section" data-aos="fade-up">
+        <h3><i class="fa-solid fa-scroll"></i> فال حافظ تعاملی</h3>
+        <p style="font-size: 0.85rem; color: var(--muted);">نیت کنید و روی دکمه زیر کلیک نمایید.</p>
+        <button class="btn btn-accent" onclick="getFal()">گرفتن فال حافظ</button>
+        <div class="result-box" id="falResult" style="white-space: pre-line; min-height: 80px;">هنوز فالی گرفته نشده است.</div>
+      </div>
+
+      <!-- ۹. گیمیفیکیشن: بازی دوز + Confetti -->
+      <div class="tool-box" data-aos="fade-up">
+        <h3><i class="fa-solid fa-gamepad"></i> بازی دوز (گیمیفیکیشن)</h3>
+        <div id="gameStatus" style="font-size: 0.85rem; color: #a5b4fc; text-align: center;">نوبت بازیکن: X</div>
+        <div class="ttt-grid">
+          <div class="ttt-cell" onclick="cellClicked(0)"></div>
+          <div class="ttt-cell" onclick="cellClicked(1)"></div>
+          <div class="ttt-cell" onclick="cellClicked(2)"></div>
+          <div class="ttt-cell" onclick="cellClicked(3)"></div>
+          <div class="ttt-cell" onclick="cellClicked(4)"></div>
+          <div class="ttt-cell" onclick="cellClicked(5)"></div>
+          <div class="ttt-cell" onclick="cellClicked(6)"></div>
+          <div class="ttt-cell" onclick="cellClicked(7)"></div>
+          <div class="ttt-cell" onclick="cellClicked(8)"></div>
+        </div>
+        <button class="btn" style="margin-top: 5px;" onclick="resetGame()">شروع مجدد بازی</button>
+      </div>
+
+      <!-- ۱۰. نوت‌پد سریع با LocalStorage (Notepad) -->
+      <div class="tool-box" data-aos="fade-up">
+        <h3><i class="fa-solid fa-note-sticky"></i> دفترچه یادداشت سریع</h3>
+        <textarea id="quickNote" rows="4" placeholder="یادداشت‌های شما خودکار ذخیره می‌شوند..."></textarea>
+        <div style="font-size: 0.8rem; color: var(--muted);" id="noteSavedStatus">ذخیره خودکار فعال است.</div>
+      </div>
+
+    </div>
+
+    <!-- بخش Accordion سوالات متداول -->
+    <section data-aos="fade-up">
+      <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-circle-question"></i> سوالات متداول</h3>
+      <div class="accordion-item">
+        <button class="accordion-header"><span>آیا اطلاعات من روی سرور ذخیره می‌شود؟</span> <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="accordion-body">خیر! تمام الگوریتم‌ها و یادداشت‌ها درون مرورگر خود شما با JavaScript و LocalStorage اجرا و نگهداری می‌شوند.</div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header"><span>الگوریتم تشریحی چگونه عبارات را حل می‌کند؟</span> <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="accordion-body">ابتدا پرانتزها حل شده، سپس تقدم توان، ضرب و تقسیم و در نهایت جمع و تفریق با ثبت گام‌ها محاسبه می‌گردد.</div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header"><span>معلم مبناها چگونه مبناهای بزرگتر از ۳۶ را می‌پذیرد؟</span> <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="accordion-body">برای مبناهای بزرگ (مانند مبنای ۶۰ یا بالاتر) کافی است هر رقم را در براکت بنویسید؛ مثلاً: [59][12][0].</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- مودال راهنمای کامل ابزارها -->
+  <div class="modal" id="modalBox">
+    <div class="modal-content help-modal-content">
+      <div class="help-header">
+        <h4><i class="fa-solid fa-book-open"></i> راهنمای استفاده از ابزارها و قابلیت‌ها</h4>
+        <button class="close-btn" id="closeModal">&times;</button>
+      </div>
+      <div class="help-scroll-body">
+        
+        <div class="help-guide-item">
+          <h5><i class="fa-solid fa-chalkboard-user text-primary"></i> معلم مبناها (Any-Base Teacher)</h5>
+          <p>امکان تبدیل هر عددی بین هر دو مبنای دلخواه (از ۲ تا نامحدود). تمام مراحل بسط توان‌ها، تقسیم‌های متوالی و ضرب‌های اعشاری را مانند یک استاد روی تخته‌سیاه نمایش می‌دهد.</p>
+        </div>
+
+        <div class="help-guide-item">
+          <h5><i class="fa-solid fa-calculator text-primary"></i> ماشین‌حساب تشریحی و محاسبه عمیق‌تر</h5>
+          <p>• <b>محاسبه تشریحی:</b> عبارات ریاضی را به صورت متنی دریافت کرده و اولویت‌ها را گام‌به‌گام تحلیل می‌کند.</p>
+          <p>• <b>محاسبه عمیق‌تر:</b> پنل مهندسی کامل با کیبورد مجازی لمسی، توابع مثلثاتی، لگاریتم و فاکتوریل را باز می‌کند.</p>
+        </div>
+
+        <div class="help-guide-item">
+          <h5><i class="fa-solid fa-feather text-primary"></i> حساب ابجد کبیر</h5>
+          <p>محاسبه ارزش عددی نام‌ها یا متون بر اساس جدول حروف ابجد (الف=۱ تا غین=۱۰۰۰).</p>
+        </div>
+
+        <div class="help-guide-item">
+          <h5><i class="fa-solid fa-user-secret text-primary"></i> رمزنگاری سزار و ویژنر</h5>
+          <p>• <b>سزار (Caesar):</b> جابجایی حروف با کلید عددی.</p>
+          <p>• <b>ویژنر (Vigenere):</b> رمزنگاری چرخشی با کلمه کلیدی.</p>
+        </div>
+
+        <div class="help-guide-item">
+          <h5><i class="fa-solid fa-lock text-primary"></i> رمزنگاری Base64</h5>
+          <p>تبدیل متن به کدهای باینری قابل انتقال (Encode) و بازگردانی مجدد آن (Decode).</p>
+        </div>
+
+        <div class="help-guide-item">
+          <h5><i class="fa-solid fa-repeat text-primary"></i> اصلاح و تعویض متن (Farsa)</h5>
+          <p>برای جایگزین کردن گروهی کلمات در متن در کوتاه‌ترین زمان ممکن.</p>
+        </div>
+
+        <div class="help-guide-item">
+          <h5><i class="fa-solid fa-gamepad text-primary"></i> فال حافظ و بازی دوز (گیمیفیکیشن)</h5>
+          <p>فال حافظ به همراه تعبیر روان، و بازی دوز دونفره با افکت شلیک کنفتی پس از برد.</p>
+        </div>
+
+        <div class="help-guide-item">
+          <h5><i class="fa-solid fa-note-sticky text-primary"></i> دفترچه یادداشت سریع</h5>
+          <p>ذخیره‌سازی دائمی نوشته‌ها در حافظه محلی مرورگر (LocalStorage).</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- مودال ماشین حساب مهندسی عمیق‌تر -->
+  <div class="modal" id="deepCalcModal">
+    <div class="modal-content deep-calc-modal-content">
+      <div class="calc-header">
+        <div class="calc-title"><i class="fa-solid fa-microchip"></i> ماشین حساب مهندسی تشریحی</div>
+        <div style="display:flex; align-items:center; gap: 10px;">
+          <div class="mode-badge" id="angleModeBtn" onclick="toggleAngleMode()">حالت زاویه: DEG</div>
+          <button class="close-btn" id="closeDeepCalc">&times;</button>
+        </div>
+      </div>
+
+      <!-- صفحه نمایشگر فرمول -->
+      <div class="screen-container">
+        <div class="screen-input" id="deepDisplay"></div>
+      </div>
+
+      <!-- کیبورد علمی لمسی -->
+      <div class="keypad-grid">
+        <button class="key key-fn" onclick="insertFunc('sin(')">sin</button>
+        <button class="key key-fn" onclick="insertFunc('cos(')">cos</button>
+        <button class="key key-fn" onclick="insertFunc('tan(')">tan</button>
+        <button class="key key-fn" onclick="insertFunc('sqrt(')">√</button>
+        <button class="key key-del" onclick="deepClearAll()">AC</button>
+
+        <button class="key key-fn" onclick="insertFunc('log(')">log</button>
+        <button class="key key-fn" onclick="insertFunc('ln(')">ln</button>
+        <button class="key key-fn" onclick="insertFunc('abs(')">|x|</button>
+        <button class="key key-fn" onclick="insertChar('!')">n!</button>
+        <button class="key key-back" onclick="deepBackspace()">⌫</button>
+
+        <button class="key key-fn" onclick="insertChar('(')">(</button>
+        <button class="key key-fn" onclick="insertChar(')')">)</button>
+        <button class="key key-fn" onclick="insertChar('^')">^</button>
+        <button class="key key-fn" onclick="insertChar('%')">%</button>
+        <button class="key key-op" onclick="insertChar('/')">÷</button>
+
+        <button class="key key-fn" onclick="insertChar('π')">π</button>
+        <button class="key key-num" onclick="insertChar('7')">7</button>
+        <button class="key key-num" onclick="insertChar('8')">8</button>
+        <button class="key key-num" onclick="insertChar('9')">9</button>
+        <button class="key key-op" onclick="insertChar('*')">×</button>
+
+        <button class="key key-fn" onclick="insertChar('e')">e</button>
+        <button class="key key-num" onclick="insertChar('4')">4</button>
+        <button class="key key-num" onclick="insertChar('5')">5</button>
+        <button class="key key-num" onclick="insertChar('6')">6</button>
+        <button class="key key-op" onclick="insertChar('-')">−</button>
+
+        <button class="key key-fn" onclick="insertFunc('1/(')">1/x</button>
+        <button class="key key-num" onclick="insertChar('1')">1</button>
+        <button class="key key-num" onclick="insertChar('2')">2</button>
+        <button class="key key-num" onclick="insertChar('3')">3</button>
+        <button class="key key-op" onclick="insertChar('+')">+</button>
+
+        <button class="key key-num" onclick="insertChar('0')">0</button>
+        <button class="key key-num" onclick="insertChar('.')">.</button>
+        <button class="key key-fn" onclick="insertChar('00')">00</button>
+        <button class="key key-equal" onclick="runDeepCalcStepByStep()">محاسبه تشریحی (=)</button>
+      </div>
+
+      <!-- مراحل حل تشریحی عمیق -->
+      <div class="steps-container">
+        <div class="steps-title">
+          <span>مراحل حل گام به گام:</span>
+          <span style="font-size: 0.75rem; color:#94a3b8;">با اولویت پیشرفته ریاضی</span>
+        </div>
+        <div class="steps-list" id="deepStepsList">
+          <div style="color: #64748b; font-size: 0.85rem; text-align: center; margin-top: 5px;">
+            فرمول را با دکمه‌ها وارد کنید و دکمه محاسبه را بزنید.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- دکمه بازگشت به بالا -->
+  <button id="topBtn"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- کتابخانه‌ها -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  
+  <!-- اسکریپت اختصاصی برنامه -->
+  <script src="thems/script.js"></script>
+</body>
+</html>

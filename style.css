@@ -524,26 +524,57 @@ img, video {
   height: auto;
 }
 
-/* ۲. کادربندی استاندارد */
+/* تنظیمات ریسپانسیو و استاندارد برای موبایل */
 * {
   box-sizing: border-box;
 }
 
-/* ۳. قوانین مخصوص موبایل و تبلت (صفحه‌های کمتر از 768 پیکسل) */
+body {
+  overflow-x: hidden; /* جلوگیری از اسکرول افقی اضافه */
+  margin: 0;
+  padding: 0;
+}
+
+/* کارت‌ها و کانتینر اصلی در موبایل عرض کامل و تمیز بگیرند */
+.container, main, section, .card {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* تنظیم هدر برای صفحات موبایل (کمتر از 768 پیکسل) */
 @media (max-width: 768px) {
-  /* اگر از فلکس‌باکس استفاده کردی، در موبایل ستونی و زیر هم چیده شوند */
-  .container, .row, .grid, main, section {
+  /* اگر هدر شما تگ header یا کلاسی مثل header / navbar دارد */
+  header, .header, .navbar, .top-bar {
+    display: flex !important;
+    flex-wrap: wrap !important; /* اجازه بده در صورت کمبود جا برود خط بعد */
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 12px 16px !important;
     width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-    flex-direction: column !important;
   }
 
-  /* تنظیم اندازه فونت برای موبایل */
-  body {
-    font-size: 15px;
+  /* اندازه لوگو در موبایل */
+  .logo, header h1, header h2, .brand {
+    font-size: 14px !important;
+    line-height: 1.3 !important;
+    text-align: right !important;
   }
+
+  /* ساعت و دکمه‌ها در موبایل */
+  .clock, .timer {
+    font-size: 13px !important;
+    padding: 4px 8px !important;
+  }
+
+  /* کارت خوش‌آمدید و کارت‌های اصلی */
+  .welcome-card, .card, [class*="card"] {
+    width: 92% !important;
+    margin: 12px auto !important;
+    padding: 16px !important;
+    border-radius: 16px !important;
+  }
+}
 
   h1 {
     font-size: 1.8rem;

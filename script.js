@@ -697,28 +697,31 @@ if (noteArea) {
   });
 }
 document.addEventListener("DOMContentLoaded", () => {
-  const sigCard = document.getElementById("studioSig");
-  const sigText = document.getElementById("sigDynamicText");
+  const sigBadge = document.getElementById("studioSig");
+  const brandName = document.getElementById("sigBrandName");
 
-  if (sigCard && sigText) {
-    let isOpen = false;
-    sigCard.addEventListener("click", () => {
-      sigText.style.opacity = "0";
-      sigText.style.transform = "translateY(3px)";
+  if (sigBadge && brandName) {
+    let isSigned = false;
+
+    sigBadge.addEventListener("click", () => {
+      // انیمیشن نرم محو شدن و برگشت
+      brandName.style.opacity = "0";
+      brandName.style.transform = "translateY(-4px)";
 
       setTimeout(() => {
-        if (!isOpen) {
-          sigText.textContent = "حسین رسولی";
-          sigCard.classList.add("unlocked");
-          isOpen = true;
+        if (!isSigned) {
+          brandName.textContent = "حسین رسولی";
+          sigBadge.classList.add("revealed");
+          isSigned = true;
         } else {
-          sigText.textContent = "امضای سازنده";
-          sigCard.classList.remove("unlocked");
-          isOpen = false;
+          brandName.textContent = "Golden Rakham";
+          sigBadge.classList.remove("revealed");
+          isSigned = false;
         }
-        sigText.style.opacity = "1";
-        sigText.style.transform = "translateY(0)";
-      }, 160);
+        brandName.style.opacity = "1";
+        brandName.style.transform = "translateY(0)";
+      }, 180);
     });
   }
 });
+

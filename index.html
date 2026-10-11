@@ -450,14 +450,59 @@
   <script src="script.js"></script>
   
 <!-- فوتر امضای استودیو -->
-<footer class="studio-signature-wrap">
-  <div class="sig-badge" id="studioSig" role="button" tabindex="0" title="برای مشاهده امضا کلیک کنید">
-    <i class="fa-solid fa-feather-pointed sig-icon"></i>
-    <span class="sig-name" id="sigBrandName">Golden Rakham</span>
-    <span class="sig-dot"></span>
-    <span class="sig-hint" id="sigActionHint">امضای اثر</span>
+<!-- بخش امضای هوشمند استودیو -->
+<div style="margin: 50px 0 30px; display: flex; justify-content: center; align-items: center; width: 100%;">
+  <div id="authorBox" onclick="toggleAuthorSignature()" style="
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 20px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+  ">
+    <i id="authorIcon" class="fa-solid fa-feather-pointed" style="color: #818cf8; font-size: 1rem; transition: transform 0.3s, color 0.3s;"></i>
+    <span id="authorName" style="color: #f8fafc; font-size: 0.95rem; font-weight: 700; transition: opacity 0.2s, color 0.3s;">Golden Rakham</span>
+    <span style="width: 4px; height: 4px; border-radius: 50%; background: #64748b; display: inline-block;"></span>
+    <span style="color: #94a3b8; font-size: 0.82rem;">امضای اثر</span>
   </div>
-</footer>
+</div>
+
+<script>
+  function toggleAuthorSignature() {
+    var nameEl = document.getElementById("authorName");
+    var iconEl = document.getElementById("authorIcon");
+    var boxEl = document.getElementById("authorBox");
+    
+    if (!nameEl) return;
+
+    nameEl.style.opacity = "0";
+
+    setTimeout(function() {
+      if (nameEl.innerText.trim() === "Golden Rakham") {
+        nameEl.innerText = "حسین رسولی";
+        nameEl.style.color = "#fef08a";
+        iconEl.style.color = "#fbbf24";
+        iconEl.style.transform = "rotate(-25deg) scale(1.15)";
+        boxEl.style.borderColor = "rgba(245, 158, 11, 0.5)";
+        boxEl.style.boxShadow = "0 0 20px rgba(245, 158, 11, 0.25)";
+      } else {
+        nameEl.innerText = "Golden Rakham";
+        nameEl.style.color = "#f8fafc";
+        iconEl.style.color = "#818cf8";
+        iconEl.style.transform = "rotate(0deg) scale(1)";
+        boxEl.style.borderColor = "rgba(255, 255, 255, 0.12)";
+        boxEl.style.boxShadow = "0 8px 25px rgba(0, 0, 0, 0.4)";
+      }
+      nameEl.style.opacity = "1";
+    }, 150);
+  }
+</script>
+
 
 
 </body>

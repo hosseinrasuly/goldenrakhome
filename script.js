@@ -696,32 +696,3 @@ if (noteArea) {
     setTimeout(() => status.innerText = "ذخیره خودکار فعال است.", 1400);
   });
 }
-document.addEventListener("DOMContentLoaded", () => {
-  const sigBadge = document.getElementById("studioSig");
-  const brandName = document.getElementById("sigBrandName");
-
-  if (sigBadge && brandName) {
-    let isSigned = false;
-
-    sigBadge.addEventListener("click", () => {
-      // انیمیشن نرم محو شدن و برگشت
-      brandName.style.opacity = "0";
-      brandName.style.transform = "translateY(-4px)";
-
-      setTimeout(() => {
-        if (!isSigned) {
-          brandName.textContent = "حسین رسولی";
-          sigBadge.classList.add("revealed");
-          isSigned = true;
-        } else {
-          brandName.textContent = "Golden Rakham";
-          sigBadge.classList.remove("revealed");
-          isSigned = false;
-        }
-        brandName.style.opacity = "1";
-        brandName.style.transform = "translateY(0)";
-      }, 180);
-    });
-  }
-});
-

@@ -672,23 +672,3 @@ button.key:active { transform: scale(0.95); }
   color: #94a3b8;
   transition: color 0.3s ease;
 }
-
-/* حالتی که امضا باز شده و طلایی می‌شود */
-.sig-badge.revealed {
-  border-color: rgba(245, 158, 11, 0.45);
-  box-shadow: 0 0 25px rgba(245, 158, 11, 0.18);
-}
-
-.sig-badge.revealed .sig-icon {
-  color: #fbbf24;
-  transform: rotate(-25deg) scale(1.15);
-}
-
-.sig-badge.revealed .sig-name {
-  color: #fef08a;
-  text-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
-}
-
-.sig-badge.revealed .sig-hint {
-  color: #cbd5e1;
-}

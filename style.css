@@ -618,3 +618,96 @@ button.key:active { transform: scale(0.95); }
     font-size: 0.85rem !important;
   }
 }
+/* بخش امضای هوشمند */
+.studio-signature-wrap {
+  margin: 60px 0 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sig-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 18px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sig-card:hover {
+  border-color: rgba(99, 102, 241, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.15);
+}
+
+.sig-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.sig-tag i {
+  color: #6366f1;
+  font-size: 0.9rem;
+}
+
+.sig-sep {
+  color: #334155;
+  font-size: 0.8rem;
+}
+
+.sig-seal {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.4s ease;
+}
+
+.sig-icon {
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  transition: transform 0.4s ease, color 0.3s ease;
+}
+
+.sig-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+}
+
+/* حالت فعال بعد از کلیک (طلایی و درخشان) */
+.sig-card.unlocked {
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.2);
+}
+
+.sig-card.unlocked .sig-seal {
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.sig-card.unlocked .sig-icon {
+  color: #fbbf24;
+  transform: rotate(-20deg) scale(1.15);
+}
+
+.sig-card.unlocked .sig-text {
+  color: #fef08a;
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+}

@@ -696,3 +696,29 @@ if (noteArea) {
     setTimeout(() => status.innerText = "ذخیره خودکار فعال است.", 1400);
   });
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const sigCard = document.getElementById("studioSig");
+  const sigText = document.getElementById("sigDynamicText");
+
+  if (sigCard && sigText) {
+    let isOpen = false;
+    sigCard.addEventListener("click", () => {
+      sigText.style.opacity = "0";
+      sigText.style.transform = "translateY(3px)";
+
+      setTimeout(() => {
+        if (!isOpen) {
+          sigText.textContent = "حسین رسولی";
+          sigCard.classList.add("unlocked");
+          isOpen = true;
+        } else {
+          sigText.textContent = "امضای سازنده";
+          sigCard.classList.remove("unlocked");
+          isOpen = false;
+        }
+        sigText.style.opacity = "1";
+        sigText.style.transform = "translateY(0)";
+      }, 160);
+    });
+  }
+});

@@ -617,97 +617,78 @@ button.key:active { transform: scale(0.95); }
     padding: 9px 0 !important;
     font-size: 0.85rem !important;
   }
-}
-/* بخش امضای هوشمند */
+/* کپسول اختصاصی امضا */
 .studio-signature-wrap {
-  margin: 60px 0 30px;
+  margin: 60px 0 35px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.sig-card {
+.sig-badge {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 8px 18px;
+  gap: 10px;
+  padding: 8px 20px;
   background: rgba(15, 23, 42, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 999px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(12px);
   cursor: pointer;
   user-select: none;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.sig-card:hover {
-  border-color: rgba(99, 102, 241, 0.45);
+.sig-badge:hover {
+  border-color: rgba(99, 102, 241, 0.4);
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.15);
-}
-
-.sig-tag {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #94a3b8;
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-.sig-tag i {
-  color: #6366f1;
-  font-size: 0.9rem;
-}
-
-.sig-sep {
-  color: #334155;
-  font-size: 0.8rem;
-}
-
-.sig-seal {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
-  transition: all 0.4s ease;
+  box-shadow: 0 12px 28px rgba(99, 102, 241, 0.15);
 }
 
 .sig-icon {
-  color: #e2e8f0;
-  font-size: 0.9rem;
+  color: #818cf8;
+  font-size: 0.95rem;
   transition: transform 0.4s ease, color 0.3s ease;
 }
 
-.sig-text {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #cbd5e1;
+.sig-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f8fafc;
   letter-spacing: 0.3px;
-  transition: all 0.3s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease, color 0.3s ease;
 }
 
-/* حالت فعال بعد از کلیک (طلایی و درخشان) */
-.sig-card.unlocked {
-  border-color: rgba(245, 158, 11, 0.5);
-  box-shadow: 0 0 25px rgba(245, 158, 11, 0.2);
+.sig-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #475569;
 }
 
-.sig-card.unlocked .sig-seal {
-  background: rgba(245, 158, 11, 0.1);
+.sig-hint {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  transition: color 0.3s ease;
 }
 
-.sig-card.unlocked .sig-icon {
+/* حالتی که امضا باز شده و طلایی می‌شود */
+.sig-badge.revealed {
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.18);
+}
+
+.sig-badge.revealed .sig-icon {
   color: #fbbf24;
-  transform: rotate(-20deg) scale(1.15);
+  transform: rotate(-25deg) scale(1.15);
 }
 
-.sig-card.unlocked .sig-text {
+.sig-badge.revealed .sig-name {
   color: #fef08a;
-  text-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+  text-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+}
+
+.sig-badge.revealed .sig-hint {
+  color: #cbd5e1;
 }
